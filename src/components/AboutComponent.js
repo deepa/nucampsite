@@ -9,6 +9,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { Fade, Stagger } from 'react-animation-components';
 
 const RenderPartner = ({ partner }) => {
   if (partner) {
@@ -34,16 +35,16 @@ function PartnerList(item, isLoading, errMess) {
       </Media>
     );
   });
-  if (isLoading) {
-    return <Loading />;
-  }
   if (errMess) {
     return <h4>{errMess}</h4>;
   }
+
   return (
-    <div className='col mt-4'>
-      <Media list>{partners}</Media>
-    </div>
+    <Fade in key={partners.id}>
+      <div className='col mt-4'>
+        <Media list>{partners}</Media>
+      </div>
+    </Fade>
   );
 }
 

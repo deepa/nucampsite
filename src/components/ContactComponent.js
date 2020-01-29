@@ -9,6 +9,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, Form, Errors } from 'react-redux-form';
+import { postFeedback } from '../redux/ActionCreators';
 
 const required = val => val && val.length;
 const maxLength = len => val => !val || val.length <= len;
@@ -57,8 +58,8 @@ class Contact extends Component {
 
   handleSubmit(values) {
     console.log('Current State is: ' + JSON.stringify(values));
-    alert('Current State is: ' + JSON.stringify(values));
-    this.props.resetFeedbackForm();
+    postFeedback(values);
+    // this.props.resetFeedbackForm();
   }
 
   render() {
