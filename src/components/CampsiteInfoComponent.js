@@ -134,14 +134,6 @@ function RenderCampsite({ campsite }) {
   );
 }
 
-function formatDate(date) {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit'
-  }).format(new Date(Date.parse(date)));
-}
-
 function RenderComments({ comments, postComment, campsiteId }) {
   if (comments) {
     return (
